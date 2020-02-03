@@ -127,6 +127,17 @@ class VecEnv(ABC):
         """
         pass
 
+    @abstractmethod
+    def seed(self, seed=None):
+        """
+        Sets the random seeds for all environments, based on a given seed.
+        Each individual environment will still get its own seed, by incrementing the given seed.
+
+        :param seed: (int) The random seed. May be None for completely random seeding.
+        :return: (list) Returns a list containing the seeds for each individual env.
+        """
+        pass
+
     def step(self, actions):
         """
         Step the environments with the given action
@@ -224,6 +235,9 @@ class VecEnvWrapper(VecEnv):
     @abstractmethod
     def step_wait(self):
         pass
+
+    def seed(self, seed=None):
+        return self.venv.seed(seed)
 
     def close(self):
         return self.venv.close()
