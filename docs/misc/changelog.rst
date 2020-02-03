@@ -16,6 +16,7 @@ New Features:
 ^^^^^^^^^^^^^
 - Parallelized updating and sampling from the replay buffer in DQN. (@flodorner)
 - Docker build script, `scripts/build_docker.sh`, can push images automatically.
+- Added a seeding method for vectorized environments. (@NeoExtended)
 
 Bug Fixes:
 ^^^^^^^^^^
@@ -33,6 +34,7 @@ Bug Fixes:
     `self.runner` instead of reinitializing a new Runner every time `learn()` is called.
 - Fixed a bug in `check_env` where it would fail on high dimensional action spaces
 - Fixed `Monitor.close()` that was not calling the parent method
+- Fixed a bug in `BaseRLModel` when seeding vectorized environments. (@NeoExtended)
 
 Deprecations:
 ^^^^^^^^^^^^^
