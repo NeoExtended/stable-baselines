@@ -133,9 +133,9 @@ class VecEnv(ABC):
         Sets the random seeds for all environments, based on a given seed.
         Each individual environment will still get its own seed, by incrementing the given seed.
 
-        :param seed: (int) The random seed. May be None for completely random seeding.
-        :return: (list) Returns a list containing the seeds for each individual env. Note that all list elements may
-            be None, if the env does not return anything when being seeded.
+        :param seed: (Optional[int]) The random seed. May be None for completely random seeding.
+        :return: (List[Union[None, int]]) Returns a list containing the seeds for each individual env.
+            Note that all list elements may be None, if the env does not return anything when being seeded.
         """
         pass
 
