@@ -8,7 +8,7 @@ from stable_baselines.common.input import observation_input
 from stable_baselines.common.running_mean_std import RunningMeanStd
 from stable_baselines.common.vec_env import VecEnvWrapper
 
-from env.tf_wrapper import BaseTFWrapper
+from stable_baselines.common.vec_env.vec_tf_wrapper import BaseTFWrapper
 
 
 def small_convnet(x, activ = tf.nn.relu, **kwargs):
