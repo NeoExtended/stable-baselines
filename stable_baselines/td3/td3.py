@@ -1,4 +1,3 @@
-import sys
 import time
 import warnings
 
@@ -346,7 +345,7 @@ class TD3(OffPolicyRLModel):
                     obs_, new_obs_, reward_ = obs, new_obs, reward
 
                 # Store transition in the replay buffer.
-                self.replay_buffer.add(obs_, action, reward_, new_obs_, float(done))
+                self.replay_buffer_add(obs_, action, reward_, new_obs_, done, info)
                 obs = new_obs
                 # Save the unnormalized observation
                 if self._vec_normalize_env is not None:
@@ -390,7 +389,6 @@ class TD3(OffPolicyRLModel):
                         infos_values = np.mean(mb_infos_vals, axis=0)
 
                     callback.on_rollout_start()
-
 
                 episode_rewards[-1] += reward_
                 if done:
